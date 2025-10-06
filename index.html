@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fayed - The Oasis Master Bedroom</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* Custom Styles */
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f5f5f5; /* Light gray background */
+      }
+
+      /* Set the main container to the specified mobile height for an accurate preview */
+      .mobile-container {
+        max-width: 390px;
+        height: 844px;
+        margin: auto;
+        background-color: #ffffff;
+        overflow-y: auto;
+        overflow-x: hidden;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Base height percentages for the main sections */
+      .top-section {
+        min-height: 15%;
+      }
+      .middle-section {
+        min-height: 55%;
+      }
+      .bottom-section {
+        min-height: 30%;
+      }
+
+      /* Fade-in animation for the hero image */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .fade-in-image {
+        animation: fadeIn 0.8s ease-in-out forwards;
+      }
+
+      /* Sticky bar animation */
+      .sticky-bar {
+        transform: translateY(100%);
+        transition: transform 0.4s ease-in-out;
+        box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.08);
+      }
+      .sticky-bar.visible {
+        transform: translateY(0);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-200 flex items-center justify-center min-h-screen">
+    <!-- Mobile Screen Container -->
+    <div id="scroll-container" class="mobile-container">
+      <!-- Main Content Wrapper -->
+      <div class="relative">
+        <!-- 1. TOP SECTION (Header & Breadcrumbs) -->
+        <header class="top-section absolute top-0 left-0 right-0 z-10 p-6 pt-8">
+          <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <h1 class="text-xl font-bold tracking-wider text-black">FAYED</h1>
+            <!-- Hamburger Menu -->
+            <div class="space-y-1.5">
+              <span class="block w-6 h-0.5 bg-black"></span>
+              <span class="block w-6 h-0.5 bg-black"></span>
+            </div>
+          </div>
+          <!-- Separator Line -->
+          <div class="h-[1px] bg-gray-200 mt-6"></div>
+
+          <!-- Contextual Navigation (Breadcrumbs) -->
+          <nav class="mt-4 text-[13px] uppercase text-black/60">
+            <ol class="flex items-center space-x-1.5">
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-black transition-colors duration-200"
+                  >Home</a
+                >
+              </li>
+              <li><span class="text-gray-400">›</span></li>
+              <li>
+                <a
+                  href="#"
+                  class="hover:text-black transition-colors duration-200"
+                  >Bohemian Style</a
+                >
+              </li>
+              <li><span class="text-gray-400">›</span></li>
+              <li class="font-medium text-black/80">Master Bedroom</li>
+            </ol>
+          </nav>
+        </header>
+
+        <!-- 2. MIDDLE SECTION (Hero Image) -->
+        <div class="middle-section flex items-end">
+          <!-- Image occupies the full width of this section -->
+          <div class="w-full h-full p-4 pt-40">
+            <img
+              src="https://images.unsplash.com/photo-1595526114035-0d45ed16da31?q=80&w=1974&auto=format&fit=crop"
+              alt="The Oasis Master Bedroom"
+              class="fade-in-image w-full h-full object-cover rounded-xl"
+              onerror="this.onerror=null;this.src='https://placehold.co/390x464/F5F5F5/cccccc?text=Image+not+found'"
+            />
+          </div>
+        </div>
+
+        <!-- 3. BOTTOM SECTION (Product Details & CTA) -->
+        <div
+          id="bottom-content"
+          class="bottom-section bg-white p-6 pt-4 rounded-t-2xl"
+        >
+          <!-- Product Title -->
+          <h2 class="text-2xl font-bold text-black tracking-tight text-left">
+            The Oasis Master Bedroom
+          </h2>
+          <!-- Subtext (Price & Craft Time) -->
+          <div class="mt-2 text-left">
+            <p id="product-price" class="text-sm">
+              <span class="text-black/60">Prices start from </span>
+              <span class="font-bold text-black/90">EGP 45,000</span>
+            </p>
+            <p class="text-sm text-black/60 mt-1">Crafted within 25 days</p>
+          </div>
+          <div
+            id="discount-applied-notice"
+            class="text-green-600 text-sm font-semibold text-left transition-opacity duration-300 opacity-0 h-0"
+          ></div>
+
+          <!-- Purchase Options Group -->
+          <div class="purchase-options mt-6 space-y-3">
+            <!-- 1. Secondary Button (Discount) -->
+            <button
+              id="discount-button"
+              class="w-full bg-white text-black h-[56px] rounded-xl text-md font-semibold border border-black active:bg-gray-100 transition-colors duration-200"
+            >
+              15% Discount on Full Collection
+            </button>
+
+            <!-- 2. Divider with Label -->
+            <div class="relative flex items-center">
+              <div class="flex-grow border-t border-gray-200"></div>
+              <span
+                class="flex-shrink mx-2 px-2 bg-white text-xs text-gray-500 uppercase"
+                >Or</span
+              >
+              <div class="flex-grow border-t border-gray-200"></div>
+            </div>
+
+            <!-- 3. Primary Button (Buy) -->
+            <button
+              class="w-full bg-black text-white h-[56px] rounded-xl text-md font-semibold active:bg-gray-800 transition-colors duration-200"
+            >
+              Customize & Buy
+            </button>
+
+            <!-- 4. Accordion Dropdowns -->
+            <div class="space-y-3 pt-2">
+              <!-- Accordion 1 -->
+              <div class="accordion-item border border-gray-200 rounded-xl">
+                <button
+                  class="accordion-header flex justify-between items-center w-full p-4 h-[52px]"
+                >
+                  <span class="font-semibold text-sm text-black"
+                    >Customize Materials</span
+                  >
+                  <div class="flex items-center gap-2">
+                    <span class="text-gray-500 text-sm">Select</span>
+                    <svg
+                      class="chevron-icon w-4 h-4 text-gray-500 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="accordion-content hidden p-4 border-t border-gray-200 bg-gray-50"
+                >
+                  <p class="text-sm text-left">Material options here...</p>
+                </div>
+              </div>
+              <!-- Accordion 2 -->
+              <div class="accordion-item border border-gray-200 rounded-xl">
+                <button
+                  class="accordion-header flex justify-between items-center w-full p-4 h-[52px]"
+                >
+                  <span class="font-semibold text-sm text-black"
+                    >Customize Fabrics</span
+                  >
+                  <div class="flex items-center gap-2">
+                    <span class="text-gray-500 text-sm">Select</span>
+                    <svg
+                      class="chevron-icon w-4 h-4 text-gray-500 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="accordion-content hidden p-4 border-t border-gray-200 bg-gray-50"
+                >
+                  <p class="text-sm text-left">Fabric options here...</p>
+                </div>
+              </div>
+              <!-- Accordion 3 -->
+              <div class="accordion-item border border-gray-200 rounded-xl">
+                <button
+                  class="accordion-header flex justify-between items-center w-full p-4 h-[52px]"
+                >
+                  <span class="font-semibold text-sm text-black"
+                    >Customize Colors</span
+                  >
+                  <div class="flex items-center gap-2">
+                    <span class="text-gray-500 text-sm">Select</span>
+                    <svg
+                      class="chevron-icon w-4 h-4 text-gray-500 transition-transform duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M19 9l-7 7-7-7"
+                      ></path>
+                    </svg>
+                  </div>
+                </button>
+                <div
+                  class="accordion-content hidden p-4 border-t border-gray-200 bg-gray-50"
+                >
+                  <p class="text-sm text-left">Color options here...</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. Second Divider -->
+            <div class="relative flex items-center pt-2">
+              <div class="flex-grow border-t border-gray-200"></div>
+              <span
+                class="flex-shrink mx-2 px-2 bg-white text-xs text-gray-500 uppercase"
+                >Or</span
+              >
+              <div class="flex-grow border-t border-gray-200"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1️⃣ FEATURED IMAGES SECTION -->
+        <div class="bg-white px-6 py-8">
+          <h2 class="text-center text-xl font-bold text-black mb-4">
+            Featured Images
+          </h2>
+          <div class="space-y-4">
+            <img
+              src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?q=80&w=2070&auto=format&fit=crop"
+              alt="Detailed view of the bed frame"
+              class="w-full h-auto object-cover rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1616627781431-d8a886095a74?q=80&w=1932&auto=format&fit=crop"
+              alt="Close-up of the wood texture"
+              class="w-full h-auto object-cover rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?q=80&w=1932&auto=format&fit=crop"
+              alt="Product in a styled room"
+              class="w-full h-auto object-cover rounded-xl shadow-[0_2px_8px_rgba(0,0,0,0.05)]"
+            />
+          </div>
+        </div>
+
+        <!-- 2️⃣ TECHNICAL DETAILS SECTION -->
+        <div class="bg-[#F9F9F9] px-6 py-8">
+          <h2 class="text-xl font-bold text-black mb-5">Technical Details</h2>
+          <div class="space-y-3 text-sm">
+            <div
+              class="flex justify-between items-center border-b border-gray-200 pb-3"
+            >
+              <span class="text-gray-500 uppercase text-xs tracking-wider"
+                >Dimensions</span
+              >
+              <span class="text-black font-medium text-right"
+                >240cm W × 95cm D × 75cm H</span
+              >
+            </div>
+            <div
+              class="flex justify-between items-center border-b border-gray-200 pb-3"
+            >
+              <span class="text-gray-500 uppercase text-xs tracking-wider"
+                >Material</span
+              >
+              <span class="text-black font-medium">Solid oak wood</span>
+            </div>
+            <div
+              class="flex justify-between items-center border-b border-gray-200 pb-3"
+            >
+              <span class="text-gray-500 uppercase text-xs tracking-wider"
+                >Finish</span
+              >
+              <span class="text-black font-medium">Natural matte coating</span>
+            </div>
+            <div
+              class="flex justify-between items-center border-b border-gray-200 pb-3"
+            >
+              <span class="text-gray-500 uppercase text-xs tracking-wider"
+                >Assembly</span
+              >
+              <span class="text-black font-medium"
+                >Minimal, tools included</span
+              >
+            </div>
+            <div class="flex justify-between items-center pt-2">
+              <span class="text-gray-500 uppercase text-xs tracking-wider"
+                >Made in</span
+              >
+              <span class="text-black font-medium">Egypt</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3️⃣ DOWNLOADS SECTION -->
+        <div class="bg-white px-6 py-8">
+          <h2 class="text-xl font-bold text-black mb-4">Downloads</h2>
+          <div class="border-t border-gray-200">
+            <!-- Download Item 1 -->
+            <a
+              href="#"
+              class="flex justify-between items-center w-full py-4 border-b border-gray-200 transition-opacity hover:opacity-70 active:opacity-50"
+            >
+              <div>
+                <p class="font-semibold text-black text-sm">Product Sheet</p>
+                <p class="text-gray-500 text-xs mt-1">PDF — 2.1 MB</p>
+              </div>
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                ></path>
+              </svg>
+            </a>
+            <!-- Download Item 2 -->
+            <a
+              href="#"
+              class="flex justify-between items-center w-full py-4 border-b border-gray-200 transition-opacity hover:opacity-70 active:opacity-50"
+            >
+              <div>
+                <p class="font-semibold text-black text-sm">Assembly Guide</p>
+                <p class="text-gray-500 text-xs mt-1">PDF — 5.8 MB</p>
+              </div>
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                ></path>
+              </svg>
+            </a>
+            <!-- Download Item 3 -->
+            <a
+              href="#"
+              class="flex justify-between items-center w-full py-4 border-b border-gray-200 transition-opacity hover:opacity-70 active:opacity-50"
+            >
+              <div>
+                <p class="font-semibold text-black text-sm">Material Care</p>
+                <p class="text-gray-500 text-xs mt-1">DOCX — 0.5 MB</p>
+              </div>
+              <svg
+                class="w-6 h-6 text-gray-700"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                ></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4️⃣ FOOTER SECTION -->
+        <footer class="bg-white">
+          <!-- 1. Newsletter Signup Zone -->
+          <div class="bg-[#F6F6F6] text-center px-6 py-16">
+            <div class="max-w-md mx-auto">
+              <h2 class="text-3xl font-bold text-black">Stay inspired.</h2>
+              <p class="mt-2 text-base text-[#555] leading-relaxed">
+                Join our newsletter for design stories, new releases, and
+                exclusive offers.
+              </p>
+              <div class="mt-6 flex items-center justify-center">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="h-[50px] w-full max-w-xs px-5 rounded-full border border-gray-300 focus:ring-2 focus:ring-black focus:outline-none transition-shadow duration-200"
+                />
+                <button
+                  class="h-[50px] -ml-10 px-6 bg-black text-white rounded-full text-sm font-semibold hover:bg-[#333] transition-colors duration-200"
+                >
+                  Subscribe
+                </button>
+              </div>
+              <p class="mt-4 text-xs text-gray-500">
+                By subscribing, you agree to our
+                <a href="#" class="underline hover:text-black">Privacy Policy</a
+                >.
+              </p>
+            </div>
+          </div>
+
+          <!-- 2. Footer Navigation Zone -->
+          <div class="px-6 py-16">
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-10 text-left">
+              <!-- Column 1: Shop -->
+              <div>
+                <h3
+                  class="text-xs font-bold text-black uppercase tracking-wider mb-4"
+                >
+                  Shop
+                </h3>
+                <ul class="space-y-3">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Chairs & Stools</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Sofas</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Tables</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Storage</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Lighting</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Column 2: About -->
+              <div>
+                <h3
+                  class="text-xs font-bold text-black uppercase tracking-wider mb-4"
+                >
+                  About
+                </h3>
+                <ul class="space-y-3">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Our Story</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Designers</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Sustainability</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Journal</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <!-- Column 3: Support -->
+              <div>
+                <h3
+                  class="text-xs font-bold text-black uppercase tracking-wider mb-4"
+                >
+                  Support
+                </h3>
+                <ul class="space-y-3">
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >FAQ</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Shipping & Returns</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Care Instructions</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Warranty</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="#"
+                      class="text-sm text-[#444] hover:underline hover:opacity-70 transition-opacity"
+                      >Terms & Privacy</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Bottom Brand Zone -->
+          <div class="border-t border-gray-200 text-center py-10">
+            <h2 class="text-2xl font-bold tracking-wider text-black">FAYED</h2>
+            <p class="text-xs text-gray-500 mt-2">
+              © 2025 Fayed. All rights reserved.
+            </p>
+            <div class="flex justify-center items-center space-x-5 mt-4">
+              <a
+                href="#"
+                class="text-gray-400 hover:text-black transition-colors duration-200"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12.315 2c-4.42 0-7.74 3.255-7.74 7.222 0 3.335 2.217 5.92 5.234 6.756.24.043.328-.104.328-.23v-1.11c-2.15.46-2.602-1.023-2.602-1.023-.42-1.054-1.026-1.334-1.026-1.334-.838-.564.062-.553.062-.553.926.064 1.413.94 1.413.94.823 1.39 2.158.988 2.684.756.083-.588.322-1.01.597-1.242-2.046-.228-4.196-1.01-4.196-4.5 0-.993.355-1.805.937-2.44-.094-.23-.406-1.154.09-2.404 0 0 .774-.246 2.536.93.736-.202 1.524-.303 2.31-.303.786 0 1.574.1 2.31.303 1.76-1.176 2.534-.93 2.534-.93.5 1.25.185 2.174.092 2.403.583.636.936 1.447.936 2.44 0 3.49-2.152 4.27-4.204 4.492.33.282.624.836.624 1.686v2.503c0 .128.087.275.33.23C17.8 15.14 20 12.555 20 9.222 20 5.255 16.73 2 12.315 2z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-black transition-colors duration-200"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10s10-4.48 10-10S17.52 2 12 2zm3.5 11.2h-2.3v6.3h-3.3v-6.3h-1.6V8.9h1.6V7.1c0-1.3.6-2.1 2.1-2.1h1.7v2.3h-1.1c-.5 0-.6.2-.6.6v1h1.8l-.2 2.3z"
+                  />
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="text-gray-400 hover:text-black transition-colors duration-200"
+              >
+                <svg
+                  class="w-5 h-5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.237 2.636 7.855 6.356 9.312-.085-.245-.164-.603-.164-.815 0-.72.483-1.442.723-1.785.23-.332.483-.645.483-1.025 0-.48-.282-.87-.647-1.14-.374-.278-.795-.232-1.048.062-.27.312-.44.75-.483 1.125-.043.412.093.815.228 1.133a5.95 5.95 0 00.785 1.35C9.7 19.8 10.99 20 11.96 20c1.532 0 2.34-.86 2.34-1.925 0-1.125-.7-1.995-1.588-2.58-.93-.625-1.54-1.39-1.54-2.54 0-1.442.92-2.58 2.21-2.58 1.11 0 1.68.82 1.68 1.8 0 .615-.173 1.25-.43 1.875-.245.58-.567.99-.92 1.24-.282.2-.557.345-.82.465.345 2.13 2.13 2.87 4.31 2.87.89 0 1.68-.215 2.32-.547.093.42.14.86.14 1.34 0 2.085-1.08 3.82-2.55 4.79a9.974 9.974 0 01-14.8-9.312c0-5.523 4.477-10 10-10s10 4.477 10 10c0 .355-.02.705-.058 1.05-.093.87-.412 1.62-.87 2.22-.522.68-1.277 1.18-2.16 1.44a4.43 4.43 0 01-1.33.21C14.73 16.03 16 14.47 16 12.3c0-1.995-1.17-3.665-2.82-3.665-1.71 0-2.82 1.33-2.82 2.925 0 .93.4 1.71 1.01 2.295.62.58.91 1.28.91 1.995 0 .86-.44 1.62-1.01 2.13-.578.508-1.29.74-2.02.74-.88 0-1.68-.37-2.22-.98a12.19 12.19 0 01-1.21-2.055c-.254-.62-.39-1.29-.39-1.995 0-2.055 1.18-3.95 3.19-3.95 1.93 0 3.28 1.26 3.28 3.19 0 1.21-.492 2.45-1.33 3.32-.86.89-2.01 1.39-3.28 1.39a8.17 8.17 0 01-2.16-.36z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- STICKY BEHAVIOR (Initially hidden) -->
+    <div
+      id="sticky-bar"
+      class="sticky-bar fixed bottom-0 left-0 right-0 h-[80px] bg-white border-t border-gray-200 flex items-center justify-between px-6 z-20 max-w-[390px] mx-auto"
+    >
+      <div class="text-left">
+        <p class="text-sm font-bold text-black">The Oasis</p>
+        <p id="sticky-price" class="text-xs">
+          <span class="text-black/60">From </span>
+          <span class="font-semibold text-black/90">EGP 45,000</span>
+        </p>
+      </div>
+      <button
+        class="bg-black text-white px-6 py-2.5 rounded-lg text-sm font-semibold active:bg-gray-800 transition-colors duration-200 whitespace-nowrap"
+      >
+        Customize & Buy
+      </button>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // --- Accordion Logic ---
+        const accordions = document.querySelectorAll(".accordion-item");
+        accordions.forEach((accordion) => {
+          const header = accordion.querySelector(".accordion-header");
+          const content = accordion.querySelector(".accordion-content");
+          const chevron = header.querySelector(".chevron-icon");
+
+          header.addEventListener("click", () => {
+            const isVisible = !content.classList.contains("hidden");
+            if (isVisible) {
+              content.classList.add("hidden");
+              chevron.classList.remove("rotate-180");
+            } else {
+              content.classList.remove("hidden");
+              chevron.classList.add("rotate-180");
+            }
+          });
+        });
+
+        // --- Discount Logic ---
+        const discountButton = document.getElementById("discount-button");
+        const priceElement = document.getElementById("product-price");
+        const stickyPriceElement = document.getElementById("sticky-price");
+        const noticeElement = document.getElementById(
+          "discount-applied-notice"
+        );
+
+        const originalPrice = 45000;
+        let discountApplied = false;
+
+        const formatPrice = (price) => `EGP ${price.toLocaleString()}`;
+
+        discountButton.addEventListener("click", () => {
+          if (discountApplied) return;
+          discountApplied = true;
+
+          const discountedPrice = originalPrice * 0.85;
+
+          // Animate price change
+          let startPrice = originalPrice;
+          const step = (originalPrice - discountedPrice) / 20;
+
+          const priceInterval = setInterval(() => {
+            startPrice -= step;
+            if (startPrice <= discountedPrice) {
+              clearInterval(priceInterval);
+              priceElement.innerHTML = `<span class="text-black/60">Prices start from </span><span class="font-bold text-black/90">${formatPrice(
+                Math.round(discountedPrice)
+              )}</span>`;
+              stickyPriceElement.innerHTML = `<span class="text-black/60">From </span><span class="font-semibold text-black/90">${formatPrice(
+                Math.round(discountedPrice)
+              )}</span>`;
+            } else {
+              priceElement.innerHTML = `<span class="text-black/60">Prices start from </span><span class="font-bold text-black/90">${formatPrice(
+                Math.round(startPrice)
+              )}</span>`;
+              stickyPriceElement.innerHTML = `<span class="text-black/60">From </span><span class="font-semibold text-black/90">${formatPrice(
+                Math.round(startPrice)
+              )}</span>`;
+            }
+          }, 15);
+
+          // Show notification
+          noticeElement.textContent = "15% discount applied";
+          noticeElement.classList.remove("opacity-0", "h-0");
+          noticeElement.style.height = noticeElement.scrollHeight + "px";
+          noticeElement.classList.add("opacity-100", "mt-2");
+
+          // Disable button
+          discountButton.disabled = true;
+          discountButton.classList.add("opacity-50", "cursor-not-allowed");
+
+          setTimeout(() => {
+            noticeElement.classList.remove("opacity-100", "mt-2");
+            noticeElement.classList.add("opacity-0");
+            setTimeout(() => {
+              noticeElement.style.height = "0px";
+            }, 300);
+          }, 3000);
+        });
+
+        // --- Sticky Bar Logic ---
+        const scrollContainer = document.getElementById("scroll-container");
+        const bottomContent = document.getElementById("bottom-content");
+        const stickyBar = document.getElementById("sticky-bar");
+
+        if (!scrollContainer || !bottomContent || !stickyBar) {
+          console.error("One or more required elements not found.");
+          return;
+        }
+
+        const handleScroll = () => {
+          // The point where the *bottom* of the purchase section is about to scroll off-screen
+          const triggerPoint =
+            bottomContent.offsetTop +
+            bottomContent.offsetHeight -
+            scrollContainer.clientHeight;
+
+          if (scrollContainer.scrollTop > bottomContent.offsetTop) {
+            stickyBar.classList.add("visible");
+          } else {
+            stickyBar.classList.remove("visible");
+          }
+        };
+
+        scrollContainer.addEventListener("scroll", handleScroll);
+      });
+    </script>
+  </body>
+</html>
